@@ -73,7 +73,11 @@ export const App = () => {
         <h1>Phonebook</h1>
         <ContactForm onFormSubmit={addContact} />
         <h2>Contacts</h2>
-        <Filter onFilterChange={onFilterChange} />
+        {contacts.length > 0 ? (
+          <Filter onFilterChange={onFilterChange} />
+        ) : (
+          <p>Your phonebook is empty! Add some contacts </p>
+        )}
       </div>
       <div
         style={{
