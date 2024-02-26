@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 const ContactForm = onFormSubmit => {
-  const [data, useData] = useState({
+  const [data, setData] = useState({
     name: '',
     number: '',
   });
@@ -25,7 +25,7 @@ const ContactForm = onFormSubmit => {
 
   const handleChange = evt => {
     const { name, value } = evt.target;
-    useData({ [name]: value });
+    setData({ [name]: value });
   };
 
   return (
