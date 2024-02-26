@@ -4,18 +4,14 @@ import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const ContactForm = onFormSubmit => {
+const ContactForm = ({ onFormSubmit }) => {
   const [data, setData] = useState({
     name: '',
     number: '',
   });
-  const nameId = nanoid();
-  const numberId = nanoid();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    /*const contact = { name: this.state.name, number: this.state.number };
-    this.state.contacts.push({ id: nanoid(), ...contact });*/
     onFormSubmit({
       name: data.name,
       number: data.number,
@@ -25,15 +21,14 @@ const ContactForm = onFormSubmit => {
 
   const handleChange = evt => {
     const { name, value } = evt.target;
-    setData({ [name]: value });
+    setData(prevData => ({ ...prevData, [name]: value }));
   };
 
   return (
     <form className={css.form} id="contactform" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor={nameId}>Name</label>
+        <label>Name</label>
         <input
-          id={this.nameId}
           type="text"
           name="name"
           pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
@@ -41,9 +36,8 @@ const ContactForm = onFormSubmit => {
           required
           onChange={handleChange}
         />
-        <label htmlFor={numberId}>Number</label>
+        <label>Number</label>
         <input
-          id={this.numberId}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
