@@ -1,0 +1,46 @@
+.contactList {
+  list-style-position: inside;
+  background: white;
+  box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
+  padding: 0;
+  margin: 40px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+li {
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+li p {
+  padding: 20px;
+  margin: 0;
+}
+li button {
+  border-radius: 10px;
+  background-color: white;
+  border: 5px solid rgba(159, 37, 37, 0.267);
+  cursor: pointer;
+  height: 50px;
+  width: 150px;
+  margin-right: 10px;
+  color: pink;
+  font-weight: 600;
+  font-size: 20px;
+}
+li button:hover {
+  background-color: rgba(239, 147, 162, 0.725);
+  color: white;
+}
+
+li:first-child {
+  margin-top: 1rem;
+}
+
+li:last-child {
+  margin-bottom: 1rem;
+}
