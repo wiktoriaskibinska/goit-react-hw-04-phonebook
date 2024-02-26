@@ -7,21 +7,14 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts'));
-  });
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem('contacts'))
+  );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
-  /*
-  componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.contacts);
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  } */
 
   const addContact = contact => {
     const isInContactsList = contacts.some(
